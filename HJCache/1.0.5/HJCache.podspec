@@ -2,8 +2,7 @@ Pod::Spec.new do |s|
   s.name         = 'HJCache'
   s.version      = '1.0.5'
   
-#  s.platform     = :ios, '6.0'
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '9.0'
   
   s.summary      = 'High performance cache framework for iOS'
   s.homepage     = 'https://github.com/ObjectiveC-Lib/HJCache'
