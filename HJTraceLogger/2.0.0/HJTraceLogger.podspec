@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.author       = { 'navy' => 'lzxy169@gmail.com' }
   
   s.requires_arc = true
+  s.libraries    = 'sqlite3'
   
   s.source_files = 'HJTraceLogger/Core/HJTraceLogger.h'
   s.default_subspec = 'Core'
@@ -36,5 +37,5 @@ Pod::Spec.new do |s|
   
   s.dependency 'XLFacility'
   
-  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC', 'VALID_ARCHS' => 'x86_64 arm64', 'ARCHS[sdk=iphonesimulator*]' => '$(ARCHS_STANDARD_64_BIT)' }
+  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 end
