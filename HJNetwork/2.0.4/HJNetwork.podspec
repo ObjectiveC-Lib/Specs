@@ -13,54 +13,55 @@ Pod::Spec.new do |s|
   s.requires_arc    = true
   s.framework       = 'CFNetwork'
   
-  s.source_files    = 'HJNetwork/Core/HJNetwork.h'
-  s.default_subspec = 'Default'
-  
-  s.subspec 'Public' do |ss|
-    ss.source_files = 'HJNetwork/Public/*.{h,m}'
-    ss.dependency 'AFNetworking', '~> 4.0'
-  end
+  s.source_files    = 'HJNetwork/HJNetwork.h'
+  s.default_subspec = 'Request'
   
   s.subspec 'Cache' do |ss|
     ss.source_files = 'HJNetwork/Cache/*.{h,m}'
     ss.dependency 'HJCache'
   end
   
+  s.subspec 'AFURLConnection' do |ss|
+    ss.source_files = 'HJNetwork/AFURLConnection/*.{h,m}'
+    ss.dependency 'AFNetworking', '~> 4.0'
+  end
+  
+  s.subspec 'Common' do |ss|
+    ss.source_files = 'HJNetwork/Common/*.{h,m}'
+    ss.dependency 'AFNetworking', '~> 4.0'
+  end
+  
   s.subspec 'DNS' do |ss|
     ss.source_files = 'HJNetwork/DNS/*.{h,m}'
-    ss.dependency 'HJNetwork/Public'
-  end
-  
-  s.subspec 'Core' do |ss|
-    ss.source_files = 'HJNetwork/Core/*.{h,m}'
-    ss.dependency 'HJNetwork/Public'
-    ss.dependency 'HJNetwork/Cache'
-  end
-  
-  s.subspec 'Default' do |ss|
-    ss.source_files = 'HJNetwork/Default/*.{h,m}'
-    ss.dependency 'HJNetwork/Core'
-  end
-  
-  s.subspec 'Accessory' do |ss|
-    ss.source_files = 'HJNetwork/Accessory/*.{h,m}'
-    ss.dependency 'HJNetwork/Default'
+    ss.dependency 'HJNetwork/Common'
   end
   
   s.subspec 'Protocol' do |ss|
     ss.source_files = 'HJNetwork/Protocol/*.{h,m}'
-    ss.dependency 'HJNetwork/Public'
+    ss.dependency 'HJNetwork/Common'
   end
   
-  s.subspec 'AFURLConnection' do |ss|
-    ss.source_files = 'HJNetwork/AFURLConnection/*.{h,m}'
-    ss.dependency 'HJNetwork/Public'
-  end
-  
-  s.subspec 'AFDefault' do |ss|
-    ss.source_files = 'HJNetwork/AFDefault/*.{h,m}'
-    ss.dependency 'HJNetwork/Public'
+  s.subspec 'Default' do |ss|
+    ss.source_files = 'HJNetwork/Default/*.{h,m}'
+    ss.dependency 'HJNetwork/Common'
     ss.dependency 'HJNetwork/Protocol'
     ss.dependency 'HJNetwork/AFURLConnection'
+  end
+  
+  s.subspec 'Request' do |ss|
+    ss.source_files = 'HJNetwork/Request/**/*.{h,m}'
+    ss.dependency 'HJNetwork/Common'
+    ss.dependency 'HJNetwork/Cache'
+  end
+  
+  s.subspec 'Download' do |ss|
+    ss.source_files = 'HJNetwork/Download/*.{h,m}'
+    ss.dependency 'HJNetwork/Common'
+    ss.dependency 'AFNetworking', '~> 4.0'
+    ss.dependency 'HJNetwork/AFURLConnection'
+  end
+  
+  s.subspec 'Upload' do |ss|
+    ss.source_files = 'HJNetwork/Upload/*.{h,m}'
   end
 end
