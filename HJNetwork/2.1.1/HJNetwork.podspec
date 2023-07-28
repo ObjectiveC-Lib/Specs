@@ -62,7 +62,9 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Upload' do |ss|
-    ss.source_files = 'HJNetwork/Upload/*.{h,m}'
+    ss.source_files = 'HJNetwork/Upload/**/*.{h,m}'
+    ss.dependency 'HJNetwork/Request'
+    ss.dependency 'HJTask'
   end
   
   s.subspec 'RetryRequest' do |ss|
