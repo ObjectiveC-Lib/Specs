@@ -11,7 +11,10 @@ Pod::Spec.new do |s|
   s.author       = { 'navy' => 'lzxy169@gmail.com' }
   
   s.requires_arc = true
-  s.libraries    = 'sqlite3'
+  s.libraries    = 'sqlite3', 'z', "c++"
+  s.pod_target_xcconfig = {
+    'OTHER_LDFLAGS' => '$(inherited) -lObjC -lc++',
+  }
   
   s.source_files = 'HJTraceLogger/Core/HJTraceLogger.h'
   s.default_subspec = 'Core'
@@ -36,6 +39,4 @@ Pod::Spec.new do |s|
   end
   
   s.dependency 'XLFacility'
-  
-  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 end
