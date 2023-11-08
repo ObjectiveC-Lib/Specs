@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'AFURLConnection' do |ss|
     ss.source_files = 'HJNetwork/AFURLConnection/*.{h,m}'
-    ss.dependency 'AFNetworking', '~> 4.0'
+    ss.dependency 'AFNetworking'
   end
   
   s.subspec 'Cache' do |ss|
@@ -28,12 +28,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'Common' do |ss|
     ss.source_files = 'HJNetwork/Common/*.{h,m}'
-    ss.dependency 'AFNetworking', '~> 4.0'
+    ss.dependency 'AFNetworking'
   end
   
   s.subspec 'Default' do |ss|
     ss.source_files = 'HJNetwork/Default/*.{h,m}'
-    ss.dependency 'HJNetwork/Common'
     ss.dependency 'HJNetwork/Protocol'
     ss.dependency 'HJNetwork/AFURLConnection'
   end
